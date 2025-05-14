@@ -25,10 +25,10 @@ class Books(models.Model):
     available_book = fields.Integer(
         string='Buku Tersedia',
         compute='_compute_available_book',
-        store=False
+        store=True
     )
 
-    @api.depends('transaction_ids')
+    @api.depends('transaction_progress_ids', 'total')
     def _compute_available_book(self):
         for rec in self:
             rec.available_book = rec.total - len(rec.transaction_progress_ids)
