@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="perpus_books_view_tree">
+            <field name="name">perpus.books.tree</field>
+            <field name="model">perpus.books</field>
+            <field name="arch" type="xml">
+                <tree create="1" delete="1">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="perpus_books_view_form">
+            <field name="name">perpus.books.form</field>
+            <field name="model">perpus.books</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!-- <button name="button_publish" type="object" string="Publish"/>
+                        <button name="button_unpublish" type="object" string="Unpublish"/> -->
+                        <!-- <field name="state" widget="statusbar"/> -->
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Title</span>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                                <field name="total"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_perpus_books" model="ir.actions.act_window">
+            <field name="name">Books</field>
+            <field name="res_model">perpus.books</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="perpus_transactions_view_tree">
+            <field name="name">perpus.transactions.tree</field>
+            <field name="model">perpus.transactions</field>
+            <field name="arch" type="xml">
+                <tree create="1" delete="1">
+                    <field name="name"/>
+                    <!-- <field name="description"/>
+                    <field name="rent_date"/>
+                    <field name="return_date"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="perpus_transactions_view_form">
+            <field name="name">perpus.transactions.form</field>
+            <field name="model">perpus.transactions</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!-- <button name="button_publish" type="object" string="Publish"/>
+                        <button name="button_unpublish" type="object" string="Unpublish"/> -->
+                        <!-- <field name="state" widget="statusbar"/> -->
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Title</span>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <!-- <field name="description"/>
+                                <field name="rent_date"/>
+                                <field name="return_date"/> -->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_perpus_transactions" model="ir.actions.act_window">
+            <field name="name">Transactions</field>
+            <field name="res_model">perpus.transactions</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

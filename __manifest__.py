@@ -22,8 +22,9 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'report/course_session_report.xml',
-        # 'report/course_session_report_xlsx.xml',
+        'views/books_view.xml',
+        'views/transactions_view.xml',
+        'views/menu.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <menuitem
+            id="menu_perpus_root"
+            name="Perpustakaan"
+            sequence="10"
+        />
+        <menuitem
+            id="menu_perpus_master_data_books"
+            name="Books"
+            parent="menu_perpus_root"
+            action="action_perpus_books"
+            sequence="10"/>
+        <menuitem
+            id="menu_perpus_transactions"
+            name="Transactions"
+            parent="menu_perpus_root"
+            action="action_perpus_transactions"
+            sequence="20"/>
+    </data>
+</odoo>
