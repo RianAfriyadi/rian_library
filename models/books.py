@@ -1,4 +1,4 @@
-from odoo import models, fields, _
+from odoo import models, fields, api, _
 from datetime import date
 
 class Books(models.Model):
@@ -8,3 +8,27 @@ class Books(models.Model):
     name = fields.Char(string='Title')
     description = fields.Text(string='Description')
     total = fields.Float(string='Total')
+
+    transaction_ids = fields.One2many(
+        comodel_name='perpus.transactions',
+        inverse_name='book_id',
+        string='Transaksi'
+    )
+
+    transaction_progress_ids = fields.One2many(
+        comodel_name='perpus.transactions',
+        inverse_name='book_id',
+        string='transaction_progress_ids',
+        domain=[('state', '=', 'progress')]
+    )
+
+    available_book = fields.Integer(
+        string='Buku Tersedia',
+        compute='_compute_available_book',
+        store=False
+    )
+
+    @api.depends('transaction_ids')
+    def _compute_available_book(self):
+        for rec in self:
+            rec.available_book = rec.total - len(rec.transaction_progress_ids)

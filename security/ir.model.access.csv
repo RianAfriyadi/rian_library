@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_perpus_books_all,access_perpus_books_all,model_perpus_books,,1,0,0,0
+access_perpus_books_staff,access_perpus_books_staff,model_perpus_books,rian_library.group_perpus_staff,1,1,1,0
+access_perpus_books_manager,access_perpus_books_manager,model_perpus_books,rian_library.group_perpus_manager,0,0,0,1
+access_perpus_transactions_all,access_perpus_transactions_all,model_perpus_transactions,,1,0,0,0
+access_perpus_transactions_staff,access_perpus_transactions_staff,model_perpus_transactions,rian_library.group_perpus_staff,1,1,1,0
+access_perpus_transactions_manager,access_perpus_transactions_manager,model_perpus_transactions,rian_library.group_perpus_manager,0,0,0,1

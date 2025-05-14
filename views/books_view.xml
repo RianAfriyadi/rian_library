@@ -9,6 +9,7 @@
                     <field name="name"/>
                     <field name="description"/>
                     <field name="total"/>
+                    <field name="available_book"/>
                 </tree>
             </field>
         </record>
@@ -34,8 +35,14 @@
                             <group>
                                 <field name="description"/>
                                 <field name="total"/>
+                                <field name="available_book"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="Transaksi" name="transactions">
+                                <field name="transaction_ids"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

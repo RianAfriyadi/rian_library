@@ -7,9 +7,9 @@
             <field name="arch" type="xml">
                 <tree create="1" delete="1">
                     <field name="name"/>
-                    <!-- <field name="description"/>
-                    <field name="rent_date"/>
-                    <field name="return_date"/> -->
+                    <field name="book_id"/>
+                    <field name="state"/>
+                    <field name="partner_id"/>
                 </tree>
             </field>
         </record>
@@ -20,22 +20,26 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <!-- <button name="button_publish" type="object" string="Publish"/>
-                        <button name="button_unpublish" type="object" string="Unpublish"/> -->
-                        <!-- <field name="state" widget="statusbar"/> -->
+                        <button name="action_state_progress" type="object" string="Proses Transaksi" invisible="state in ('progress','done')" class="oe_highlight"/>
+                        <button name="action_state_done" type="object" string="Selesai Transaksi" invisible="state in ('draft','done')" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
                         <div class="oe_title">
-                            <span class="o_form_label">Title</span>
+                            <span class="o_form_label">Nama Peminjam</span>
                             <h1>
                                 <field name="name"/>
                             </h1>
                         </div>
                         <group>
                             <group>
-                                <!-- <field name="description"/>
+                                <field name="description"/>
                                 <field name="rent_date"/>
-                                <field name="return_date"/> -->
+                                <field name="return_date"/>
+                            </group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="book_id"/>
                             </group>
                         </group>
                     </sheet>
