@@ -15,20 +15,14 @@ class Books(models.Model):
         string='Transaksi'
     )
 
-    transaction_progress_ids = fields.One2many(
-        comodel_name='perpus.transactions',
-        inverse_name='book_id',
-        string='transaction_progress_ids',
-        domain=[('state', '=', 'progress')]
-    )
-
     available_book = fields.Integer(
         string='Buku Tersedia',
         compute='_compute_available_book',
         store=True
     )
-
-    @api.depends('transaction_progress_ids', 'total')
+    
+    @api.depends('transaction_ids.state', 'total')
     def _compute_available_book(self):
         for rec in self:
-            rec.available_book = rec.total - len(rec.transaction_progress_ids)
+            i_transaction_progress = rec.transaction_ids.filtered(lambda x: x.state == 'progress')
+            rec.available_book = rec.total - len(i_transaction_progress)
